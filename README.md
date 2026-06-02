@@ -1,6 +1,6 @@
 ## Santiago Alzate
-## Computer Engineer · Security Engineering · AI Safety
-## B.S. Computer Engineering — University of Massachusetts Amherst
+# Computer Engineer · Security Engineering · AI Safety
+# B.S. Computer Engineering — University of Massachusetts Amherst
 I build and break systems at the seam where hardware security, cybersecurity, and AI safety meet. My work runs from embedded hardware-security design and reverse engineering to distributed-systems research and the security implications of modern AI. This repository collects the projects I'm proudest of — each lives in its own folder with code, documentation, and writeups.
 
 ## Featured Projects
