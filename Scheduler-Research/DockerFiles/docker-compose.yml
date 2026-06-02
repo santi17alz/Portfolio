@@ -1,0 +1,156 @@
+networks:
+  training-net:
+    external: true
+
+services:
+  node0:
+    build: .
+    container_name: node0
+    hostname: node0
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - training-net
+    volumes:
+      - ./training:/workspace/training
+      - ./results:/workspace/results
+      - ./data:/workspace/data
+      - ./tools:/workspace/tools
+      - ./telemetry:/workspace/telemetry
+    environment:
+      - MASTER_ADDR=node0
+      - MASTER_PORT=29500
+      - WORLD_SIZE=5
+      - RANK=0
+    tty: true
+    stdin_open: true
+
+  node1:
+    build: .
+    container_name: node1
+    hostname: node1
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - training-net
+    volumes:
+      - ./training:/workspace/training
+      - ./results:/workspace/results
+      - ./data:/workspace/data
+      - ./tools:/workspace/tools
+      - ./telemetry:/workspace/telemetry
+    environment:
+      - MASTER_ADDR=node0
+      - MASTER_PORT=29500
+      - WORLD_SIZE=5
+      - RANK=1
+    tty: true
+    stdin_open: true
+
+  node2:
+    build: .
+    container_name: node2
+    hostname: node2
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - training-net
+    volumes:
+      - ./training:/workspace/training
+      - ./results:/workspace/results
+      - ./data:/workspace/data
+      - ./tools:/workspace/tools
+      - ./telemetry:/workspace/telemetry
+    environment:
+      - MASTER_ADDR=node0
+      - MASTER_PORT=29500
+      - WORLD_SIZE=5
+      - RANK=2
+    tty: true
+    stdin_open: true
+
+  node3:
+    build: .
+    container_name: node3
+    hostname: node3
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - training-net
+    volumes:
+      - ./training:/workspace/training
+      - ./results:/workspace/results
+      - ./data:/workspace/data
+      - ./tools:/workspace/tools
+      - ./telemetry:/workspace/telemetry
+    environment:
+      - MASTER_ADDR=node0
+      - MASTER_PORT=29500
+      - WORLD_SIZE=5
+      - RANK=3
+    tty: true
+    stdin_open: true
+
+  node4:
+    build: .
+    container_name: node4
+    hostname: node4
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - training-net
+    volumes:
+      - ./training:/workspace/training
+      - ./results:/workspace/results
+      - ./data:/workspace/data
+      - ./tools:/workspace/tools
+      - ./telemetry:/workspace/telemetry
+    environment:
+      - MASTER_ADDR=node0
+      - MASTER_PORT=29500
+      - WORLD_SIZE=5
+      - RANK=4
+    tty: true
+    stdin_open: true
+
+  dashboard:
+    build: .
+    container_name: dashboard
+    hostname: dashboard
+    networks:
+      - training-net
+    volumes:
+      - ./dashboard:/workspace/dashboard
+      - ./data:/workspace/data
+    ports:
+      - "5050:5000"
+    command: python3 dashboard/app.py
+    tty: true
+    stdin_open: true
+
+  scorer:
+    build: .
+    container_name: scorer
+    hostname: scorer
+    networks:
+      - training-net
+    volumes:
+      - ./dashboard:/workspace/dashboard
+      - ./data:/workspace/data
+    command: python3 dashboard/auto_score.py
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+
+  telemetry:
+    build: .
+    container_name: telemetry
+    hostname: telemetry
+    networks:
+      - training-net
+    volumes:
+      - ./telemetry:/workspace/telemetry
+      - ./data:/workspace/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    tty: true
+    stdin_open: true
