@@ -7,7 +7,6 @@ I build and break systems at the seam where hardware security, cybersecurity, an
 | Project | What it is | Domain / Stack |
 |---|---|---|
 | **Klavis** | A hardware-security system pairing a hardware authentication token with a keystroke-biometric verification layer, documented in a 25-page, threat-modeled technical report. | Embedded hardware · cryptography · threat modeling |
-| **FLIP-O-RAMA** | A full revival of a 1970s flip-dot display: reverse-engineered, driven over a custom RS-485 protocol, with a real-time hand-mirror demo. | Python · MediaPipe · OpenCV · RS-485 · reverse engineering |
 | **Cloud Scheduler Research** | ACM research paper (in submission): a scheduling framework that cuts overhead in distributed AI model training across networked compute. | Distributed systems · cloud · simulation · scheduling |
 | **AI Safety Research** | Research analyzing how generative AI lowers the barrier to entry for cyberattacks — and what that means for AI safety and defensive security. | AI safety · security research · threat analysis |
 
