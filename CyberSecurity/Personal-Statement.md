@@ -1,4 +1,4 @@
-# Professional Statement
+# Personal Statement
 
 **Santiago Alzate Echeverry**
 Computer Engineering · University of Massachusetts Amherst
