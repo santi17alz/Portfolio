@@ -12,7 +12,7 @@ I build and break systems at the seam where hardware security, cybersecurity, an
 
 ## Skills
 
-Languages: Python, C/C++ <!-- TODO: adjust to match what you actually used -->
+Languages: Python, C/C++ 
 Hardware & Embedded: embedded systems, RS-485, hardware prototyping, sensor/IO integration
 Security: threat modeling, hardware security, cryptography, authentication, offensive & defensive fundamentals
 Cloud & Systems: cloud computing, distributed systems, SDN networking
